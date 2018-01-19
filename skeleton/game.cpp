@@ -156,7 +156,7 @@ void Game::setupAssets()
 	{
 		std::cout << "problem loading arial black font" << std::endl;
 	}
-	
+	m_licienceScreen.setup(m_ArialBlackfont);
 
 }
 
