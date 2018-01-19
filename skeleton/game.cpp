@@ -79,6 +79,7 @@ void Game::update(sf::Time t_deltaTime)
 		m_licienceScreen.update(t_deltaTime);
 		break;
 	case GameMode::Splash:
+		m_splashScreen.update(t_deltaTime);
 		break;
 	case GameMode::Map:
 		break;
@@ -88,7 +89,7 @@ void Game::update(sf::Time t_deltaTime)
 		break;
 	case GameMode::GamePlay:
 		break;
-	case GameMode::Pause:
+	case GameMode::MainMenu:
 		break;
 	case GameMode::GameOver:
 		break;
@@ -122,6 +123,7 @@ void Game::render()
 		m_licienceScreen.render(m_window);
 		break;
 	case GameMode::Splash:
+		m_splashScreen.render(m_window);
 		break;
 	case GameMode::Map:
 		break;
@@ -133,7 +135,7 @@ void Game::render()
 		break;
 	case GameMode::Pause:
 		break;
-	case GameMode::GameOver:
+	case GameMode::MainMenu:
 		break;
 	case GameMode::Credits:
 		break;
@@ -161,6 +163,7 @@ void Game::setupAssets()
 		std::cout << "problem loading arial black font" << std::endl;
 	}
 	m_licienceScreen.setup(m_ArialBlackfont);
+	m_splashScreen.setup(m_ArialBlackfont);
 
 }
 

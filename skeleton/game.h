@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Licience.h"
+#include "Splash.h"
 
 
 
@@ -24,7 +25,8 @@ enum class  GameMode
 	Market,
 	Upgrades,
 	Story,
-	loadLevel
+	loadLevel,
+	MainMenu
 };
 
 class Game
@@ -48,6 +50,7 @@ private:
 	
 	void setupAssets();
 	Licience m_licienceScreen; // licience object to do that mode
+	Splash m_splashScreen; // splash object for splash screen
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
