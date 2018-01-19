@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include "Licience.h"
 #include "Splash.h"
+#include "MainMneu.h"
 
 
 
@@ -51,6 +52,7 @@ private:
 	void setupAssets();
 	Licience m_licienceScreen; // licience object to do that mode
 	Splash m_splashScreen; // splash object for splash screen
+	MainMneu m_mainMenuScreen; // menu screen
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message

@@ -22,11 +22,13 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Licience.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMneu.cpp" />
     <ClCompile Include="Splash.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="Licience.h" />
+    <ClInclude Include="MainMneu.h" />
     <ClInclude Include="Splash.h" />
   </ItemGroup>
   <ItemGroup>

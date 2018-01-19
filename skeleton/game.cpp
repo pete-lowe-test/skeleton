@@ -90,6 +90,7 @@ void Game::update(sf::Time t_deltaTime)
 	case GameMode::GamePlay:
 		break;
 	case GameMode::MainMenu:
+		m_mainMenuScreen.update(t_deltaTime);
 		break;
 	case GameMode::GameOver:
 		break;
@@ -136,6 +137,7 @@ void Game::render()
 	case GameMode::Pause:
 		break;
 	case GameMode::MainMenu:
+		m_mainMenuScreen.render(m_window);
 		break;
 	case GameMode::Credits:
 		break;
@@ -164,6 +166,6 @@ void Game::setupAssets()
 	}
 	m_licienceScreen.setup(m_ArialBlackfont);
 	m_splashScreen.setup(m_ArialBlackfont);
-
+	m_mainMenuScreen.setup(m_ArialBlackfont);
 }
 
