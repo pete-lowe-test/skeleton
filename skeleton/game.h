@@ -4,6 +4,26 @@
 
 #include <SFML/Graphics.hpp>
 
+/// <summary>
+/// this enum will hold the different modes/screens the game be in
+/// </summary>
+enum class  GameMode
+{
+	Licience,
+	Splash,
+	Map,
+	Help,
+	HighScore,
+	GamePlay,
+	Pause,
+	GameOver,
+	Credits,
+	Market,
+	Upgrades,
+	Story,
+	loadLevel
+};
+
 class Game
 {
 public:
@@ -13,6 +33,8 @@ public:
 	/// main method for game
 	/// </summary>
 	void run();
+	// used to determin which screen we're on
+	static GameMode m_currentMode;
 
 private:
 
@@ -20,8 +42,8 @@ private:
 	void update(sf::Time t_deltaTime);
 	void render();
 	
-	void setupFontAndText();
-	void setupSprite();
+	
+	void setupAssets();
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
