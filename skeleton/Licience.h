@@ -1,6 +1,8 @@
 #pragma once
-#include "game.h"
+
 #include <SFML\Graphics.hpp>
+
+
 
 class Licience
 {

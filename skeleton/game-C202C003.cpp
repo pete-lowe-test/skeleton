@@ -1,18 +1,20 @@
 // author Peter Lowe
 
 #include "Game.h"
+#include <SFML\Graphics.hpp>
 #include <iostream>
 
 
-// neede to initialise the gamemode
-GameMode Game::m_currentMode{ GameMode::Licience };
+
+
+
 
 Game::Game() :
 	m_window{ sf::VideoMode{ 800, 600, 32 }, "SFML Game" },
 	m_exitGame{false} //when true game will exit
 {
-	setupAssets(); // load font 
-
+	setupFontAndText(); // load font 
+	setupSprite(); // load texture
 }
 
 
@@ -69,38 +71,6 @@ void Game::processEvents()
 /// <param name="t_deltaTime">time interval per frame</param>
 void Game::update(sf::Time t_deltaTime)
 {
-	switch (m_currentMode)
-	{
-	case GameMode::Licience:
-		m_licienceScreen.update(t_deltaTime);
-		break;
-	case GameMode::Splash:
-		break;
-	case GameMode::Map:
-		break;
-	case GameMode::Help:
-		break;
-	case GameMode::HighScore:
-		break;
-	case GameMode::GamePlay:
-		break;
-	case GameMode::Pause:
-		break;
-	case GameMode::GameOver:
-		break;
-	case GameMode::Credits:
-		break;
-	case GameMode::Market:
-		break;
-	case GameMode::Upgrades:
-		break;
-	case GameMode::Story:
-		break;
-	case GameMode::loadLevel:
-		break;
-	default:
-		break;
-	}
 	if (m_exitGame)
 	{
 		m_window.close();
@@ -112,51 +82,42 @@ void Game::update(sf::Time t_deltaTime)
 /// </summary>
 void Game::render()
 {
-	switch (m_currentMode)
-	{
-	case GameMode::Licience:
-		m_licienceScreen.render(m_window);
-		break;
-	case GameMode::Splash:
-		break;
-	case GameMode::Map:
-		break;
-	case GameMode::Help:
-		break;
-	case GameMode::HighScore:
-		break;
-	case GameMode::GamePlay:
-		break;
-	case GameMode::Pause:
-		break;
-	case GameMode::GameOver:
-		break;
-	case GameMode::Credits:
-		break;
-	case GameMode::Market:
-		break;
-	case GameMode::Upgrades:
-		break;
-	case GameMode::Story:
-		break;
-	case GameMode::loadLevel:
-		break;
-	default:
-		break;
-	}
-	
+	m_window.clear(sf::Color::White);
+	m_window.draw(m_welcomeMessage);
+	m_window.draw(m_logoSprite);
+	m_window.display();
 }
 
 /// <summary>
 /// load the font and setup the text message for screen
 /// </summary>
-void Game::setupAssets()
+void Game::setupFontAndText()
 {
 	if (!m_ArialBlackfont.loadFromFile("ASSETS\\FONTS\\ariblk.ttf"))
 	{
 		std::cout << "problem loading arial black font" << std::endl;
 	}
-	m_licienceScreen.setup(m_ArialBlackfont);
+	m_welcomeMessage.setFont(m_ArialBlackfont);
+	m_welcomeMessage.setString("SFML Game");
+	m_welcomeMessage.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
+	m_welcomeMessage.setPosition(40.0f, 40.0f);
+	m_welcomeMessage.setCharacterSize(80);
+	m_welcomeMessage.setOutlineColor(sf::Color::Red);
+	m_welcomeMessage.setFillColor(sf::Color::Black);
+	m_welcomeMessage.setOutlineThickness(3.0f);
 
 }
 
+/// <summary>
+/// load the texture and setup the sprite for the logo
+/// </summary>
+void Game::setupSprite()
+{
+	if (!m_logoTexture.loadFromFile("ASSETS\\IMAGES\\SFML-LOGO.png"))
+	{
+		// simple error message if previous call fails
+		std::cout << "problem loading logo" << std::endl;
+	}
+	m_logoSprite.setTexture(m_logoTexture);
+	m_logoSprite.setPosition(300.0f, 180.0f);
+}
