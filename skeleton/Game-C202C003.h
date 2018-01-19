@@ -5,8 +5,6 @@
 #include <SFML/Graphics.hpp>
 #include "Licience.h"
 
-
-
 /// <summary>
 /// this enum will hold the different modes/screens the game be in
 /// </summary>
