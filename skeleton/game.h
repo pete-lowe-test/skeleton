@@ -3,33 +3,19 @@
 #define GAME
 
 #include <SFML/Graphics.hpp>
+#include "Globals.h"
 #include "Licience.h"
 #include "Splash.h"
 #include "MainMneu.h"
+#include "GamePlay.h"
+
 
 
 
 /// <summary>
-/// this enum will hold the different modes/screens the game be in
+/// this class will control the overall game
+/// not the gameplay that eill be a smaller part of the game
 /// </summary>
-enum class  GameMode
-{
-	Licience,
-	Splash,
-	Map,
-	Help,
-	HighScore,
-	GamePlay,
-	Pause,
-	GameOver,
-	Credits,
-	Market,
-	Upgrades,
-	Story,
-	loadLevel,
-	MainMenu
-};
-
 class Game
 {
 public:
@@ -53,10 +39,12 @@ private:
 	Licience m_licienceScreen; // licience object to do that mode
 	Splash m_splashScreen; // splash object for splash screen
 	MainMneu m_mainMenuScreen; // menu screen
+	GamePlay m_gamePlayScreen; // gameplay object
 
 	sf::RenderWindow m_window; // main SFML window
-	sf::Font m_ArialBlackfont; // font used by message
-	bool m_exitGame; // control exiting game
+	sf::Font m_ArialBlackfont; // font used all othet lcasses only loaded once and other classes
+							   // use a refrence to this
+	bool m_exitGame;			// control exiting game
 
 };
 

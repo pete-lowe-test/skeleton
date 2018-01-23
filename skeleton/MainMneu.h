@@ -10,7 +10,7 @@ public:
 	void render(sf::RenderWindow &t_window);
 	void setup(sf::Font &t_font);
 private:
-	sf::Font m_font;
-	sf::Text m_message;
+	sf::Font m_font;  // font used
+	sf::Text m_message; // text for message
 };
 

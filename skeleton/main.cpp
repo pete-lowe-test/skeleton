@@ -1,8 +1,11 @@
 /// <summary>
-/// simple game loop for SFML[2.4.2]
+/// simple outline for asteroids
+/// do not copy any of this code it will  hurt
+/// your project and learning: Instead read understand why
+/// and make your own design and coding decisions
 /// 
 /// @author Peter Lowe
-/// @date May 21017
+/// @date Jan 2018
 /// </summary>
 
 #ifdef _DEBUG 

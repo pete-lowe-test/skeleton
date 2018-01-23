@@ -6,6 +6,8 @@
 
 
 // neede to initialise the gamemode
+// as this is static we need to initialise it outside of the methods
+// and need to refrence it using the class rather than via an istance
 GameMode Game::m_currentMode{ GameMode::Licience };
 
 
@@ -62,6 +64,9 @@ void Game::processEvents()
 			if (sf::Keyboard::Escape == event.key.code)
 			{
 				m_exitGame = true;
+				// need to change this as escape should pause
+				// or bring me back one level in the game not exit
+				// straight away
 			}
 		}
 	}
@@ -69,6 +74,7 @@ void Game::processEvents()
 
 /// <summary>
 /// Update the game world
+/// switch to which ever class is dealing wiht curretn game state
 /// </summary>
 /// <param name="t_deltaTime">time interval per frame</param>
 void Game::update(sf::Time t_deltaTime)
@@ -88,6 +94,7 @@ void Game::update(sf::Time t_deltaTime)
 	case GameMode::HighScore:
 		break;
 	case GameMode::GamePlay:
+		m_gamePlayScreen.update(t_deltaTime);
 		break;
 	case GameMode::MainMenu:
 		m_mainMenuScreen.update(t_deltaTime);
@@ -114,7 +121,8 @@ void Game::update(sf::Time t_deltaTime)
 }
 
 /// <summary>
-/// draw the frame and then switch bufers
+/// draw the game
+/// switch to which ever class is dealing wiht curretn game state
 /// </summary>
 void Game::render()
 {
@@ -133,6 +141,7 @@ void Game::render()
 	case GameMode::HighScore:
 		break;
 	case GameMode::GamePlay:
+		m_gamePlayScreen.render(m_window);
 		break;
 	case GameMode::Pause:
 		break;
@@ -156,7 +165,8 @@ void Game::render()
 }
 
 /// <summary>
-/// load the font and setup the text message for screen
+/// load the font for use in other classes
+/// get other classes to setup their assets
 /// </summary>
 void Game::setupAssets()
 {
@@ -167,5 +177,6 @@ void Game::setupAssets()
 	m_licienceScreen.setup(m_ArialBlackfont);
 	m_splashScreen.setup(m_ArialBlackfont);
 	m_mainMenuScreen.setup(m_ArialBlackfont);
+	m_gamePlayScreen.setup(m_ArialBlackfont);
 }
 
