@@ -1,4 +1,4 @@
-// author Peter Lowe
+// author Peter Lowe Jan 2018
 #ifndef GAME
 #define GAME
 
