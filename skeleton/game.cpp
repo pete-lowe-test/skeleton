@@ -1,4 +1,4 @@
-// author Peter Lowe
+// author Peter Lowe Jan 2018
 
 #include "Game.h"
 #include <SFML\Graphics.hpp>
